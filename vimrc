@@ -302,7 +302,7 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 " 触发语法补全
 let g:ycm_key_invoke_completion = '<C-z>'
 " 设置额外的语义补全触发条件
-let g:ycm_semantic_triggers = {'c,cpp,python,java,py,cs': ['re!\w{2}']}
+let g:ycm_semantic_triggers = {'c, cpp, python, java, py ,cs': ['re!\w{2}']}
 " 关闭函数原型预览功能
 set completeopt=menu,menuone
 let g:ycm_add_preview_to_completeopt = 0
@@ -345,7 +345,6 @@ Plug 'skywind3000/asyncrun.vim'
 let g:asyncrun_open = 6
 " 任务结束时候响铃提醒
 let g:asyncrun_bell = 1
-let g:asyncrun_mode = 4
 " 指定默认 shell
 let g:asyncrun_shell = 'powershell'
 let g:asyncrun_shellflag = '-c'
