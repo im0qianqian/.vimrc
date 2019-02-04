@@ -91,21 +91,19 @@ set number
 set splitbelow
 set splitright
 
-if (g:isWindows)
-    "不显示工具/菜单栏
-    set guioptions-=T
-    set guioptions-=m
-    set guioptions-=L
-    set guioptions-=r
-    set guioptions-=b
-    " 使用内置 tab 样式而不是 gui
-    set guioptions-=e
-    set guifont=Consolas:h12:cANSI
-endif
+" 不显示工具/菜单栏
+set guioptions-=T
+set guioptions-=m
+set guioptions-=L
+set guioptions-=r
+set guioptions-=b
+" 使用内置 tab 样式而不是 gui
+set guioptions-=e
+set guifont=Consolas:h12:cANSI
 
 set listchars=trail:·,extends:>,precedes:<
-set statusline=%f
-set statusline+=%m
+set statusline=%F
+set statusline+=%M
 set statusline+=%=
 set statusline+=%{''.(&fenc!=''?&fenc:&enc).''}
 set statusline+=/
@@ -114,7 +112,7 @@ set statusline+=\ -\      " Separator
 set statusline+=%l/%L
 set statusline+=[%p%%]
 set statusline+=\ -\      " Separator
-set statusline +=%1*\ %y\ %*
+set statusline+=%1*\ %y\ %*
 " }}}
 
 " Format {{{
@@ -225,9 +223,6 @@ let g:NERDTreeWinPos = 'left'
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 nmap <leader>n :NERDTreeToggle <cr>
-if exists('g:NERDTreeWinPos')
-    "    autocmd vimenter * NERDTree D:\project\AcmLearning
-endif
 " }}}
 " ----- Multiple-cursors ----- {{{
 " Plug 'terryma/vim-multiple-cursors'
@@ -249,11 +244,6 @@ let g:airline_left_sep = '»'
 let g:airline_right_sep = '«'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#vcs_priority = ["git", "mercurial"]
-let g:airline_mode_map = {
-            \ 'n'  : 'N',
-            \ 'i'  : 'I',
-            \ 'v'  : 'V',
-            \ }
 let g:airline#extensions#tabline#enabled = 1
 
 " }}}
@@ -320,28 +310,10 @@ let g:ycm_filetype_whitelist = {
             \ }
 " Python 解释器路径
 if (g:isWindows)
-    let g:ycm_python_interpreter_path = 'C:\\Anaconda3\\python.exe'
-    let g:ycm_server_python_interpreter="C:/Anaconda3/python.exe"
-    " Python sysPath
-    let g:ycm_python_sys_path = [
-                \'C:\\Anaconda3\\python36.zip',
-                \'C:\\Anaconda3\\DLLs',
-                \'C:\\Anaconda3\\lib',
-                \'C:\\Anaconda3',
-                \'C:\\Anaconda3\\lib\\site-packages',
-                \'C:\\Anaconda3\\lib\\site-packages\\Sphinx-1.5.6-py3.6.egg',
-                \'C:\\Anaconda3\\lib\\site-packages\\win32',
-                \'C:\\Anaconda3\\lib\\site-packages\\win32\\lib',
-                \'C:\\Anaconda3\\lib\\site-packages\\Pythonwin']
     let g:ycm_global_ycm_extra_conf="~/vimfiles/.ycm_extra_conf.py"
 else
-    " let g:ycm_python_interpreter_path = '/usr/bin/python'
     let g:ycm_global_ycm_extra_conf="~/.vim/.ycm_extra_conf.py"
 endif
-" let g:ycm_extra_conf_vim_data = [
-" \  'g:ycm_python_interpreter_path',
-" \  'g:ycm_python_sys_path'
-" \]
 " }}}
 " ---- AsyncRun ---- {{{
 Plug 'skywind3000/asyncrun.vim'
@@ -375,7 +347,7 @@ let g:cpp_concepts_highlight = 1
 " ---- UltiSnips --- {{{
 Plug 'SirVer/ultisnips'
 Plug 'im0qianqian/vim-snippets'
-let g:UltiSnipsExpandTrigger="<M-k>"
+let g:UltiSnipsExpandTrigger="<M-j>"
 let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 " If you want :UltiSnipsEdit to split your window.
