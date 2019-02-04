@@ -86,7 +86,7 @@ set hlsearch
 " 打开行号显示
 set number
 " 窗口大小
-set lines=35 columns=140
+" set lines=35 columns=140
 " 分割出来的窗口位于当前窗口下边/右边
 set splitbelow
 set splitright
@@ -319,25 +319,29 @@ let g:ycm_filetype_whitelist = {
             \ "zsh":1,
             \ }
 " Python 解释器路径
-let g:ycm_python_interpreter_path = 'C:\\Anaconda3\\python.exe'
-" Python sysPath
-let g:ycm_python_sys_path = [
-            \'C:\\Anaconda3\\python36.zip',
-            \'C:\\Anaconda3\\DLLs',
-            \'C:\\Anaconda3\\lib',
-            \'C:\\Anaconda3',
-            \'C:\\Anaconda3\\lib\\site-packages',
-            \'C:\\Anaconda3\\lib\\site-packages\\Sphinx-1.5.6-py3.6.egg',
-            \'C:\\Anaconda3\\lib\\site-packages\\win32',
-            \'C:\\Anaconda3\\lib\\site-packages\\win32\\lib',
-            \'C:\\Anaconda3\\lib\\site-packages\\Pythonwin']
-let g:ycm_extra_conf_vim_data = [
-            \  'g:ycm_python_interpreter_path',
-            \  'g:ycm_python_sys_path'
-            \]
-
-let g:ycm_server_python_interpreter="C:/Anaconda3/python.exe"
-let g:ycm_global_ycm_extra_conf="~/vimfiles/.ycm_extra_conf.py"
+if (g:isWindows)
+    let g:ycm_python_interpreter_path = 'C:\\Anaconda3\\python.exe'
+    let g:ycm_server_python_interpreter="C:/Anaconda3/python.exe"
+    " Python sysPath
+    let g:ycm_python_sys_path = [
+                \'C:\\Anaconda3\\python36.zip',
+                \'C:\\Anaconda3\\DLLs',
+                \'C:\\Anaconda3\\lib',
+                \'C:\\Anaconda3',
+                \'C:\\Anaconda3\\lib\\site-packages',
+                \'C:\\Anaconda3\\lib\\site-packages\\Sphinx-1.5.6-py3.6.egg',
+                \'C:\\Anaconda3\\lib\\site-packages\\win32',
+                \'C:\\Anaconda3\\lib\\site-packages\\win32\\lib',
+                \'C:\\Anaconda3\\lib\\site-packages\\Pythonwin']
+    let g:ycm_global_ycm_extra_conf="~/vimfiles/.ycm_extra_conf.py"
+else
+    " let g:ycm_python_interpreter_path = '/usr/bin/python'
+    let g:ycm_global_ycm_extra_conf="~/.vim/.ycm_extra_conf.py"
+endif
+" let g:ycm_extra_conf_vim_data = [
+" \  'g:ycm_python_interpreter_path',
+" \  'g:ycm_python_sys_path'
+" \]
 " }}}
 " ---- AsyncRun ---- {{{
 Plug 'skywind3000/asyncrun.vim'
@@ -357,7 +361,7 @@ function! ExecuteByIm0qianqian()
     if &filetype == 'c' || &filetype == 'cpp'
         AsyncRun -mode=4 g++ -std=c++14 -g -DLOCAL_IM0QIANQIAN -Wall -pipe -m64 $(VIM_FILEPATH) -o $(VIM_FILEDIR)\bin\Debug\$(VIM_FILENOEXT).exe && $(VIM_FILEDIR)\bin\Debug\$(VIM_FILENOEXT).exe
     elseif &filetype == 'python'
-        AsyncRun -mode=4 python $(VIM_FILEPATH) 
+        AsyncRun -mode=4 python $(VIM_FILEPATH)
     endif
 endfunction
 " }}}
@@ -371,7 +375,7 @@ let g:cpp_concepts_highlight = 1
 " ---- UltiSnips --- {{{
 Plug 'SirVer/ultisnips'
 Plug 'im0qianqian/vim-snippets'
-let g:UltiSnipsExpandTrigger="<M-j>"
+let g:UltiSnipsExpandTrigger="<M-k>"
 let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 " If you want :UltiSnipsEdit to split your window.
