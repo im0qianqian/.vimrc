@@ -59,7 +59,8 @@ set backspace=indent,eol,start whichwrap+=<,>,[,]
 set clipboard+=unnamed
 " 设置 alt 键不映射到菜单栏
 set winaltkeys=no
-
+" 启用鼠标
+set mouse=a
 if(g:isWindows)
     " 设置 python 路径 (Windows)
     set pythonthreedll=C:\Anaconda3\Python36.dll
