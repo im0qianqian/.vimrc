@@ -59,7 +59,8 @@ set backspace=indent,eol,start whichwrap+=<,>,[,]
 set clipboard+=unnamed
 " 设置 alt 键不映射到菜单栏
 set winaltkeys=no
-
+" 启用鼠标
+set mouse=a
 if(g:isWindows)
     " 设置 python 路径 (Windows)
     set pythonthreedll=C:\Anaconda3\Python36.dll
@@ -99,8 +100,11 @@ set guioptions-=r
 set guioptions-=b
 " 使用内置 tab 样式而不是 gui
 set guioptions-=e
-" set guifont=Consolas:h12:cANSI
-set guifont=Consolas\ 14
+if (g:isWindows)
+    set guifont=Consolas:h12:cANSI
+else
+    set guifont=Consolas\ 14
+endif
 
 set listchars=trail:·,extends:>,precedes:<
 set statusline=%F
