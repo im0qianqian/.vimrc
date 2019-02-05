@@ -100,8 +100,11 @@ set guioptions-=r
 set guioptions-=b
 " 使用内置 tab 样式而不是 gui
 set guioptions-=e
-" set guifont=Consolas:h12:cANSI
-set guifont=Consolas\ 14
+if (g:isWindows)
+    set guifont=Consolas:h12:cANSI
+else
+    set guifont=Consolas\ 14
+endif
 
 set listchars=trail:·,extends:>,precedes:<
 set statusline=%F
