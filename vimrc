@@ -323,8 +323,13 @@ let g:asyncrun_open = 6
 " 任务结束时候响铃提醒
 let g:asyncrun_bell = 1
 " 指定默认 shell
-let g:asyncrun_shell = 'powershell'
-let g:asyncrun_shellflag = '-c'
+if(g:isWindows)
+    let g:asyncrun_shell = 'powershell'
+    let g:asyncrun_shellflag = '-c'
+else
+    let g:asyncrun_shell = 'gnome-terminal'
+endif
+let g:asyncrun_mode=4
 " 设置 打开/关闭 Quickfix 窗口
 nnoremap <C-n> :call asyncrun#quickfix_toggle(6)<cr>
 " 保存并编译运行 C++
@@ -332,7 +337,7 @@ nnoremap <silent> <C-b> :call ExecuteByIm0qianqian()<CR>
 function! ExecuteByIm0qianqian()
     exec "w"
     if &filetype == 'c' || &filetype == 'cpp'
-        AsyncRun -mode=4 g++ -std=c++14 -g -DLOCAL_IM0QIANQIAN -Wall -pipe -m64 $(VIM_FILEPATH) -o $(VIM_FILEDIR)\bin\Debug\$(VIM_FILENOEXT).exe && $(VIM_FILEDIR)\bin\Debug\$(VIM_FILENOEXT).exe
+        AsyncRun -mode=4 g++ -std=c++14 -g -DLOCAL_IM0QIANQIAN -Wall -pipe -m64 $(VIM_FILEPATH) -o $(VIM_FILEDIR)/bin/Debug/$(VIM_FILENOEXT).exe && $(VIM_FILEDIR)/bin/Debug/$(VIM_FILENOEXT).exe
     elseif &filetype == 'python'
         AsyncRun -mode=4 python $(VIM_FILEPATH)
     endif
