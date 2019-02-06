@@ -136,6 +136,8 @@ set foldmethod=indent
 set foldlevelstart=99
 " 语法高亮
 syntax on
+" 设置不自动折行
+set nowrap
 " }}}
 
 " Keymap {{{
@@ -268,9 +270,11 @@ Plug 'Chiel92/vim-autoformat'
 if(g:isWindows)
     " 设置 clang-format 路径
     let g:formatterpath = ['C:\Users\qianqian\.vscode\extensions\ms-vscode.cpptools-0.21.0\LLVM\bin']
+else
+    let g:formatterpath = ['/home/qianqian/Documents/program/clang-format']
 endif
 " 自定义格式化参数
-let g:formatdef_clangformat = '"clang-format -style=\"{BasedOnStyle: LLVM, IndentWidth: 4, Language: Cpp, AccessModifierOffset: -4, AlignEscapedNewlinesLeft: true}\" -fallback-style=LLVM"'
+let g:formatdef_clangformat = '"clang-format -style=\"{BasedOnStyle: LLVM, IndentWidth: 4, Language: Cpp, AccessModifierOffset: -4, AlignEscapedNewlinesLeft: true, , BreakConstructorInitializersBeforeComma: true}\" -fallback-style=LLVM"'
 " 设置支持的文件类型，c/cpp
 let g:formatters_c = ['clangformat']
 let g:formatters_cpp = ['clangformat']
