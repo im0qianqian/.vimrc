@@ -63,7 +63,7 @@ set winaltkeys=no
 set mouse=a
 if(g:isWindows)
     " 设置 python 路径 (Windows)
-    set pythonthreedll=C:\Anaconda3\Python36.dll
+    set pythonthreedll=C:\Anaconda3\Python37.dll
 endif
 " }}}
 
