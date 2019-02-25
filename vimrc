@@ -370,3 +370,6 @@ let g:UltiSnipsEditSplit="vertical"
 filetype on
 call plug#end()
 " }}}
+
+
+let g:UltiSnipsUsePythonVersion = 3
