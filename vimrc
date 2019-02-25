@@ -65,6 +65,8 @@ if(g:isWindows)
     " 设置 python 路径 (Windows)
     set pythonthreehome=C:\Anaconda3
     set pythonthreedll=C:\Anaconda3\Python37.dll
+else
+    set pythonthreehome=/usr
 endif
 " }}}
 
@@ -371,6 +373,3 @@ let g:UltiSnipsEditSplit="vertical"
 filetype on
 call plug#end()
 " }}}
-
-
-let g:UltiSnipsUsePythonVersion = 3
