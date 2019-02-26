@@ -34,6 +34,7 @@ augroup ft_vim
                 \ endif
 
 augroup END
+
 " }}}
 
 " General {{{
@@ -87,6 +88,10 @@ source $VIMRUNTIME/menu.vim
 set cursorline
 " 高亮查找
 set hlsearch
+" 即时显示查找结果
+set incsearch
+" 查找时忽略大小写
+set ignorecase
 " 打开行号显示
 set number
 " 窗口大小
