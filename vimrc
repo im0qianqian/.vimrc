@@ -221,8 +221,8 @@ nmap ,fn :let @*=substitute(expand("%"), "/", "\\", "g")<CR>
 nmap ,fp :let @*=substitute(expand("%:p"), "/", "\\", "g")<CR>
 
 " 设置切换Buffer快捷键"
-nnoremap <C-left> :bn<CR>
-nnoremap <C-right> :bp<CR>
+nnoremap <C-left> :bp<CR>
+nnoremap <C-right> :bn<CR>
 
 " }}}
 
