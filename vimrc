@@ -44,6 +44,8 @@ set nocompatible
 set nobackup
 " 不生成临时交换文件
 set noswapfile
+" 设置自动加载已在外部更改的文件
+set autoread
 " 记录的历史命令最大条数
 set history=1024
 " 设置 vim 的当前目录为打开的文件所在目录
@@ -374,6 +376,10 @@ let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+" }}}
+
+" ---- Vimcdoc --- {{{
+Plug 'yianwillis/vimcdoc'
 " }}}
 filetype on
 call plug#end()
