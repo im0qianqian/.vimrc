@@ -83,7 +83,9 @@ let $LANG = 'en_US.UTF-8'
 
 " GUI {{{
 " 设置主题
-colorscheme Tomorrow-Night
+colorscheme one
+" colorscheme Tomorrow-Night
+set background=dark
 
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
@@ -252,7 +254,7 @@ set laststatus=2
 if !exists('g:airline_symbols')
     "let g:airline_symbols = {}
 endif
-let g:airline_theme='tomorrow'
+let g:airline_theme='one'
 let g:airline_powerline_fonts = 1
 let g:Powerline_symbols='fancy'
 
