@@ -59,7 +59,7 @@ set nobomb
 " start: 要想删除此次插入前的输入，需设置这个。
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 " Vim 的默认寄存器和系统剪贴板共享
-set clipboard+=unnamed
+" set clipboard+=unnamed
 " 设置 alt 键不映射到菜单栏
 set winaltkeys=no
 " 启用鼠标
