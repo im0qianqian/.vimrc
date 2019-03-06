@@ -83,9 +83,12 @@ let $LANG = 'en_US.UTF-8'
 
 " GUI {{{
 " 设置主题
-colorscheme one
-" colorscheme Tomorrow-Night
-set background=dark
+if has("gui_running")
+    colorscheme one
+    set background=dark
+else
+    colorscheme Tomorrow-Night
+endif
 
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
