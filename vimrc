@@ -116,7 +116,7 @@ set guioptions-=b
 " 使用内置 tab 样式而不是 gui
 set guioptions-=e
 if (g:isWindows)
-    set guifont=Consolas:h12:cANSI
+    set guifont=Consolas:h14:cANSI
 else
     set guifont=Consolas\ 14
 endif
