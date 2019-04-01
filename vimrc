@@ -118,7 +118,7 @@ set guioptions-=e
 if (g:isWindows)
     set guifont=Consolas:h14:cANSI
 else
-    set guifont=Consolas\ 14
+    set guifont=YaHei\ Consolas\ Hybrid\ 14
 endif
 
 set listchars=trail:·,extends:>,precedes:<
