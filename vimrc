@@ -284,7 +284,7 @@ vmap <C-x> <Leader>c<Space>
 Plug 'Chiel92/vim-autoformat'
 if(g:isWindows)
     " 设置 clang-format 路径
-    let g:formatterpath = ['C:\Users\qianqian\.vscode\extensions\ms-vscode.cpptools-0.21.0\LLVM\bin']
+    let g:formatterpath = ['D:\program\clang-format\']
 else
     let g:formatterpath = ['/home/qianqian/Documents/program/clang-format']
 endif
