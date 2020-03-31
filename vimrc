@@ -382,7 +382,9 @@ let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 " }}}
-
+" ---- auto pairs --- {{{
+Plug 'jiangmiao/auto-pairs'
+" }}}
 " ---- Vimcdoc --- {{{
 Plug 'yianwillis/vimcdoc'
 " }}}
