@@ -101,6 +101,8 @@ set incsearch
 set ignorecase
 " 打开行号显示
 set number
+" 打开相对行号
+set relativenumber
 " 窗口大小
 " set lines=35 columns=140
 " 分割出来的窗口位于当前窗口下边/右边
@@ -302,7 +304,7 @@ Plug 'Valloric/YouCompleteMe' , { 'do': './install.py --clang-completer','for': 
 " 停止提示是否载入本地ycm_extra_conf文件
 let g:ycm_confirm_extra_conf = 0
 " 语法关键字补全
-let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_seed_identifiers_with_syntax = 0
 " 开启 YCM 基于标签引擎
 let g:ycm_collect_identifiers_from_tags_files = 1
 " 从第2个键入字符就开始罗列匹配项
@@ -321,7 +323,9 @@ let g:ycm_semantic_triggers = {'c, cpp, python, java, py ,cs': ['re!\w{2}']}
 set completeopt=menu,menuone
 let g:ycm_add_preview_to_completeopt = 0
 " 屏蔽 YCM 诊断代码信息
-let g:ycm_show_diagnostics_ui = 0
+" let g:ycm_show_diagnostics_ui = 0
+" 不显示诊断信息最左侧的提示（会让窗口抖动）
+let g:ycm_enable_diagnostic_signs = 0
 " 启用 YCM 白名单
 let g:ycm_filetype_whitelist = {
             \ "c":1,

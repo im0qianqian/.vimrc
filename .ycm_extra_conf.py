@@ -54,6 +54,7 @@ flags = [
     '-Wno-variadic-macros',
     '-fexceptions',
     '-DNDEBUG',
+    # '--gcc-toolchain=C:/Users/qianqian/Documents/programs/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0',
     # You 100% do NOT need -DUSE_CLANG_COMPLETER and/or -DYCM_EXPORT in your flags;
     # only the YCM source code needs it.
     '-DUSE_CLANG_COMPLETER',
@@ -90,18 +91,21 @@ flags = [
     # 'cpp/ycm/tests/gmock/include',
     # '-isystem',
     # 'cpp/ycm/benchmarks/benchmark/include',
-    '-I',
-    'C:/Users/qianqian/Documents/programs/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++',
-    '-I',
+
+    '-isystem',
     'C:/Users/qianqian/Documents/programs/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32',
-    '-I',
-    'C:/Users/qianqian/Documents/programs/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward',
-    '-I',
+    '-isystem',
+    'C:/Users/qianqian/Documents/programs/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++',
+    '-isystem',
     'C:/Users/qianqian/Documents/programs/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include',
-    '-I',
-    'C:/Users/qianqian/Documents/programs/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed',
-    '-I',
+    # '-isystem',
+    # 'C:/Users/qianqian/Documents/programs/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/experimental',
+    '-isystem',
     'C:/Users/qianqian/Documents/programs/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include',
+    '-isystem',
+    'C:/Users/qianqian/Documents/programs/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed',
+    # '-isystem',
+    # 'C:/Users/qianqian/Documents/programs/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward',
 
     '-I',
     'C:/Program Files (x86)/CodeBlocks/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32',
@@ -113,7 +117,7 @@ flags = [
     'C:/Program Files (x86)/CodeBlocks/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include',
     '-I',
     'C:/Program Files (x86)/CodeBlocks/mingw64/x86_64-w64-mingw32/include',
-    
+
     '-I',
     "/usr/include/c++/8.2.1/x86_64-pc-linux-gnu",
     '-I',
@@ -209,12 +213,10 @@ def Settings(**kwargs):
             pass
 
         return {
-            'flags':
-            final_flags,
+            'flags': final_flags,
             'include_paths_relative_to_dir':
             compilation_info.compiler_working_dir_,
-            'override_filename':
-            filename
+            'override_filename': filename
         }
 
     if language == 'python':
