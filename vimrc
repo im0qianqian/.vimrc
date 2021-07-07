@@ -4,10 +4,13 @@
 " ------------------------------
 
 " Init {{{
-" 判断当前环境是 Windows 还是 Linux
-let g:isWindows = 0
+" 判断当前环境是 Windows 还是 Linux 还是 Macos
+" Linux = 0, Windows = 1, Macos = 2
+let g:systemType = 0
 if(has("win32") || has("win64") || has("win95") || has("win16"))
-    let g:isWindows = 1
+    let g:systemType = 1
+elseif(has("mac"))
+    let g:systemType = 2
 endif
 " }}}
 
@@ -64,7 +67,7 @@ set backspace=indent,eol,start whichwrap+=<,>,[,]
 set winaltkeys=no
 " 启用鼠标
 set mouse=a
-if(g:isWindows)
+if(g:systemType == 1)
     " 设置 python 路径 (Windows)
     set pythonthreehome=C:\ProgramData\Miniconda3
     set pythonthreedll=C:\ProgramData\Miniconda3\Python37.dll
@@ -117,7 +120,7 @@ set guioptions-=r
 set guioptions-=b
 " 使用内置 tab 样式而不是 gui
 set guioptions-=e
-if (g:isWindows)
+if (g:systemType == 1)
     set guifont=Consolas:h14:cANSI
 else
     set guifont=Monospace\ 14
@@ -284,9 +287,11 @@ vmap <C-x> <Leader>c<Space>
 " }}}
 " ----- AutoFormat ---- {{{
 Plug 'Chiel92/vim-autoformat'
-if(g:isWindows)
+if(g:systemType == 1)
     " 设置 clang-format 路径
     let g:formatterpath = ['D:\program\clang-format\']
+elseif(g:systemType == 2)
+    let g:formatterpath = ['clang-format']
 else
     let g:formatterpath = ['/home/qianqian/Documents/program/clang-format']
 endif
@@ -337,7 +342,7 @@ let g:ycm_filetype_whitelist = {
             \ "zsh":1,
             \ }
 " Python 解释器路径
-if (g:isWindows)
+if (g:systemType == 1)
     let g:ycm_global_ycm_extra_conf="~/vimfiles/.ycm_extra_conf.py"
 else
     let g:ycm_global_ycm_extra_conf="~/.vim/.ycm_extra_conf.py"
@@ -350,7 +355,7 @@ let g:asyncrun_open = 6
 " 任务结束时候响铃提醒
 let g:asyncrun_bell = 1
 " 指定默认 shell
-if(g:isWindows)
+if(g:systemType == 1)
     let g:asyncrun_shell = 'powershell'
     let g:asyncrun_shellflag = '-c'
 else
